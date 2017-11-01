@@ -1,0 +1,53 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<?xml-stylesheet type='text/xsl' href='../../RulesTransform.xslt'?>
+
+<!-- To view this document in a formatted HTML view, go to XML menu and select Start XSLT Without Debugging -->
+
+<rules>
+  <rule-set name="General">
+    <rule id="ReturnSingleAwait" code-fix-provider="true">
+      <title>Await expression can be simplified</title>
+      <message-format>The method {0} can be refactored to get rid of the async keyword.</message-format>
+      <category>Naming</category>
+      <severity>Warning</severity>
+      <description>When an async method awaits a single statement and this statement is the last statement of the method, we can get rid of the async keyword and return the Task directly instead.</description>
+    </rule>
+    <rule id="ConfigureAwait" code-fix-provider="true">
+      <title>Every await expression must end with a ConfigureAwait() call.</title>
+      <message-format>The await expression must end with a call to ConfigureAwait().</message-format>
+      <category>Naming</category>
+      <severity>Error</severity>
+      <description>Every await expression must end with a call to ConfigureAwait() to avoid deadlocks.</description>
+    </rule>
+    <rule id="NoSystemExceptionThrown" code-fix-provider="false">
+      <title>System exception should never be explicitly thrown.</title>
+      <message-format>{0} should never be explicitly thrown.</message-format>
+      <category>Naming</category>
+      <severity>Warning</severity>
+      <description>System exception should never be explicitly thrown.</description>
+    </rule>
+    <rule id="ThreadSleepInAsync" code-fix-provider="true">
+      <title>Thread.Sleep should never be called within an asynchronous calling context.</title>
+      <message-format>Do not use Thread.Sleep within an asynchronous context.</message-format>
+      <category>Naming</category>
+      <severity>Warning</severity>
+      <description>Thread.Sleep will block the current thread. Within an asynchronous call context, this would defeat the purpse of asynchronity.</description>
+    </rule>
+  </rule-set>
+  <rule-set name="WorkflowFoundation">
+    <rule id="NoWritableFieldsInActivity" code-fix-provider="false">
+      <title>A workflow activity should not declare any writable backing fields</title>
+      <message-format>Field {0} of class {1} is not allowed.</message-format>
+      <category>Naming</category>
+      <severity>Warning</severity>
+      <description>Fields and properties should not be used within activities since they are being shared between workflows. You should use constants or store values in the workflow context.</description>
+    </rule>
+    <rule id="NoWritablePropertiesInActivity" code-fix-provider="false">
+      <title>A workflow activity should not declare any writable properties</title>
+      <message-format>Property {0} of class {1} is not allowed.</message-format>
+      <category>Naming</category>
+      <severity>Warning</severity>
+      <description>Fields and properties should not be used within activities since they are being shared between workflows. You should use constants or store values in the workflow context.</description>
+    </rule>
+  </rule-set>
+</rules>

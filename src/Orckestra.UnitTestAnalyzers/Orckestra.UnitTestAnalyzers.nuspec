@@ -1,0 +1,21 @@
+﻿<?xml version="1.0"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2011/08/nuspec.xsd">
+  <metadata>
+    <id>Orckestra.UnitTestAnalyzers</id>
+    <version>0.0.0</version>
+    <title>Orckestra.UnitTestAnalyzers</title>
+    <authors>Orckestra</authors>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>This package contains Roslyn code analyzers that should be used by all test projects of Orckestra Commerce Cloud. These analyzers validates unit test code against our coding standard. See also Orckestra.Analyzers for more generic analyzers that do not only target test code.</description>
+    <copyright>Copyright 2016</copyright>
+    <tags>Orckestra.UnitTestAnalyzers, analyzers</tags>
+    <frameworkAssemblies>
+      <frameworkAssembly assemblyName="System" targetFramework="" />
+    </frameworkAssemblies>
+  </metadata>
+  <!-- The convention for analyzers is to put language agnostic dlls in analyzers\portable50 and language specific analyzers in either analyzers\portable50\cs or analyzers\portable50\vb -->
+  <files>
+    <file src="*.dll" target="analyzers\dotnet\cs" exclude="**\Microsoft.CodeAnalysis.*;**\System.Collections.Immutable.*;**\System.Reflection.Metadata.*;**\System.Composition.*" />
+    <file src="tools\*.ps1" target="tools\" />
+  </files>
+</package>

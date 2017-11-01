@@ -1,0 +1,140 @@
+﻿<#@ assembly name="System.Core" #>
+<#@ assembly name="System.Xml" #>
+<#@ assembly name="System.Xml.Linq" #>
+<#@ assembly name="EnvDTE" #>
+<#@ import namespace="System.IO" #>
+<#@ import namespace="System.Linq" #>
+<#@ import namespace="System.Xml.Linq" #>
+<#@ import namespace="System.Text" #>
+<#@ import namespace="System.Collections.Generic" #>
+<#@ output extension=".cs" #>
+using System.Collections.Immutable;
+using Microsoft.CodeAnalysis;
+using Microsoft.CodeAnalysis.Diagnostics;
+using Orckestra.Analyzers.Common;
+using Microsoft.CodeAnalysis.CodeFixes;
+using System.Composition;
+
+<#
+	var hostServiceProvider = (IServiceProvider)Host;
+	var dte = (EnvDTE.DTE)hostServiceProvider.GetService(typeof(EnvDTE.DTE));
+	var activeSolutionProjects = (Array)dte.ActiveSolutionProjects;
+	var projectItem = dte.Solution.FindProjectItem(this.Host.ResolvePath(@"Rules.xml"));
+	var project = projectItem.ContainingProject;
+	var defaultNamespace = project.Properties.Item("DefaultNamespace").Value;
+	
+	var ruleSets = GetAllRuleSets();
+	foreach (var ruleSet in ruleSets) 
+	{
+#>
+namespace <#= defaultNamespace #>.<#= ruleSet.Name #>
+{
+	[DiagnosticAnalyzer(LanguageNames.CSharp)]
+	public partial class <#= ruleSet.Name #>SyntaxAnalyzer : BaseDiagnosticAnalyzer
+	{	
+		<#
+		var allRules = ruleSet.RuleDefinitions;
+		var codeFixDiagnosticIds = allRules.Where(r => r.ProvidesCodeFix).Select(r => $"{ruleSet.Name}SyntaxAnalyzer.{r.DiagnosticId}").ToArray();
+
+		foreach (var rule in allRules) {#>
+public const string <#= rule.DiagnosticId #> = "<#= rule.Id + "Diagnostic" #>";
+		<# } #>
+
+		<# foreach (var rule in allRules) {#>
+private static DiagnosticDescriptor <#= rule.Id + "Rule" #> = new DiagnosticDescriptor(<#= rule.DiagnosticId #>, "<#= rule.Title #>", "<#= rule.MessageFormat #>", "<#= rule.Category #>", <#= $"DiagnosticSeverity.{rule.Severity}" #>, isEnabledByDefault: <#= rule.IsEnabled? "true" : "false" #>, description: "<#= rule.Description #>");
+		<# } #>
+
+		public override ImmutableArray<DiagnosticDescriptor> SupportedDiagnostics { get { return ImmutableArray.Create(<#= string.Join(", ", allRules.Select(r => $"{r.Id}Rule")) #>); } }
+
+		public override sealed void Initialize(AnalysisContext context)
+		{
+			<# if (ruleSet.EnableParallelExecution) {#>
+#if !DEBUG
+			context.EnableConcurrentExecution();
+			#endif
+			<# } #>
+
+			context.ConfigureGeneratedCodeAnalysis(GeneratedCodeAnalysisFlags.<#= ruleSet.GeneratedCodeAction #>);
+
+			RegisterActions(context);
+		}
+	}
+
+	<# if (codeFixDiagnosticIds.Any()) { #>
+	[ExportCodeFixProvider(LanguageNames.CSharp, Name = nameof(<#= ruleSet.Name #>SyntaxAnalyzerCodeFixProvider)), Shared]
+	public partial class <#= ruleSet.Name #>SyntaxAnalyzerCodeFixProvider : BaseCodeFixProvider
+	{
+		public sealed override ImmutableArray<string> FixableDiagnosticIds
+		{
+			get { return ImmutableArray.Create<string>(<#= string.Join(", ", codeFixDiagnosticIds) #>); }
+		}
+
+		public sealed override FixAllProvider GetFixAllProvider()
+		{
+			// See https://github.com/dotnet/roslyn/blob/master/docs/analyzers/FixAllProvider.md for more information on Fix All Providers
+			return WellKnownFixAllProviders.BatchFixer;
+		}
+	}
+	<# } #>
+}
+<# 
+	}	
+#>
+
+<#+
+	private void SaveOutput(string outputFileName)
+	{
+		string templateDirectory = Path.GetDirectoryName(Host.TemplateFile);
+		string outputFilePath = Path.Combine(templateDirectory, outputFileName);
+		File.WriteAllText(outputFilePath, this.GenerationEnvironment.ToString()); 
+
+		this.GenerationEnvironment.Remove(0, this.GenerationEnvironment.Length);
+	}
+
+	private IEnumerable<RuleSet> GetAllRuleSets()
+	{
+		var doc = XDocument.Load(this.Host.ResolvePath(@"Rules.xml"));
+		return doc.Root.Elements().Select(e => new RuleSet(e));
+	}
+
+	sealed class RuleSet
+	{
+		internal RuleSet(XElement ruleSetElement)
+		{
+			Name = ruleSetElement.Attribute("name").Value;
+			RuleDefinitions = ruleSetElement.Elements().Select(e => new RuleDefinition(e)).ToArray();
+			EnableParallelExecution = bool.Parse(ruleSetElement.Attribute("parallel")?.Value ?? "true");
+			GeneratedCodeAction = ruleSetElement.Attribute("generated-code-action")?.Value ?? "None";
+		}
+
+		public string Name { get;}
+		public RuleDefinition[] RuleDefinitions { get; }
+		public bool EnableParallelExecution { get; }
+		public string GeneratedCodeAction { get; }
+	}
+
+	sealed class RuleDefinition
+	{
+		internal RuleDefinition(XElement ruleElement)
+		{
+			Id = ruleElement.Attribute("id").Value;
+			Title = ruleElement.Element("title").Value;
+			MessageFormat = ruleElement.Element("message-format").Value;
+			Category = ruleElement.Element("category").Value;
+			Description = ruleElement.Element("description")?.Value ?? Title;
+			Severity = ruleElement.Element("severity")?.Value ?? "Warning";
+			ProvidesCodeFix = bool.Parse(ruleElement.Attribute("code-fix-provider")?.Value ?? "false");
+			IsEnabled = bool.Parse(ruleElement.Attribute("enabled")?.Value ?? "true");
+		}
+
+		public string Id { get; }
+		public string DiagnosticId { get { return Id + "DiagnosticId"; }}
+		public string Title { get; }
+		public string MessageFormat { get; }
+		public string Category { get; }
+		public string Severity { get; }
+		public string Description { get; }
+		public bool ProvidesCodeFix { get; }
+		public bool IsEnabled { get; }
+	}
+#>

@@ -1,0 +1,37 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<?xml-stylesheet type='text/xsl' href='../../RulesTransform.xslt'?>
+
+<!-- To view this document in a formatted HTML view, go to XML menu and select Start XSLT Without Debugging -->
+
+<rules>
+  <rule-set name="UnitTest">
+    <rule id="AsyncTask" code-fix-provider="true">
+      <title>Asynchronous test methods should declare an Async TestCategory.</title>
+      <message-format>The test method '{0}' should declare an Async TestCategory.</message-format>
+      <category>Naming</category>
+      <severity>Warning</severity>
+      <description>All asynchronous test methods should declare an Async TestCategory attribute. This will help the test runner to use an appropriate test configuration for the test.</description>
+    </rule>
+    <rule id="ClientIntegrationTest" code-fix-provider="true">
+      <title>ClientIntegration based tests must declare a DataSource</title>
+      <message-format>The test method '{0}' must declare a DataSourceAttribute.</message-format>
+      <category>Naming</category>
+      <severity>Error</severity>
+      <description>All test methods marked with a TestCategory Integration and that is declared in a class inheriting from ClientIntegrationTestBase must declare a dataSource attribute.</description>
+    </rule>
+    <rule id="TestCategory" code-fix-provider="true">
+      <title>TestCategory Mandatory</title>
+      <message-format>The test method '{0}' must define a TestCategory attribute with exactly one of the following values: Unit, Integration.</message-format>
+      <category>Naming</category>
+      <severity>Error</severity>
+      <description>All unit tests are required to have a valid TestCategory attribute.</description>
+    </rule>
+    <rule id="AsyncVoid" code-fix-provider="true">
+      <title>Async void tests are invalid</title>
+      <message-format>The test method '{0}' is marked as async void and should be marked as async Task.</message-format>
+      <category>Naming</category>
+      <severity>Error</severity>
+      <description>Asynchronous unit tests must use the signature async Task.</description>
+    </rule>
+  </rule-set>
+</rules>
