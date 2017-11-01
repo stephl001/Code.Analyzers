@@ -88,5 +88,4 @@ when you build this project, follow these steps:
     path to point to your local NuGet feed folder.
 	
 ## Authors
-* [Stephane Larocque](mailto:stephane.larocque@orckestra.com)
-* [Maxime Beaudry](mailto:maxime.beaudry@orckestra.com)
+* [Stephane Larocque](mailto:stephl001@gmail.com)
