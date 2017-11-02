@@ -8,8 +8,8 @@
     <ProjectGuid>{390EB886-0CA2-429B-87FB-3590592E5D97}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Orckestra.Analyzers</RootNamespace>
-    <AssemblyName>Orckestra.Analyzers</AssemblyName>
+    <RootNamespace>Code.Analyzers</RootNamespace>
+    <AssemblyName>Code.Analyzers</AssemblyName>
     <ProjectTypeGuids>{786C830F-07A1-408B-BD7F-6EE04809D6DB};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
     <TargetFrameworkProfile>Profile7</TargetFrameworkProfile>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
@@ -64,7 +64,7 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />
-    <None Include="Orckestra.Analyzers.nuspec">
+    <None Include="Code.Analyzers.nuspec">
       <SubType>Designer</SubType>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
@@ -77,16 +77,15 @@
     <None Include="tools\uninstall.ps1">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Include="ReadMe.txt" />
   </ItemGroup>
   <ItemGroup>
     <Analyzer Include="..\..\packages\NuGet\Microsoft.CodeAnalysis.Analyzers.1.1.0\analyzers\dotnet\cs\Microsoft.CodeAnalysis.Analyzers.dll" />
     <Analyzer Include="..\..\packages\NuGet\Microsoft.CodeAnalysis.Analyzers.1.1.0\analyzers\dotnet\cs\Microsoft.CodeAnalysis.CSharp.Analyzers.dll" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Orckestra.Analyzers.Common\Orckestra.Analyzers.Common.csproj">
+    <ProjectReference Include="..\Orckestra.Analyzers.Common\Code.Analyzers.Common.csproj">
       <Project>{a1bef2fa-5c92-46e2-8133-9bc43ade15ec}</Project>
-      <Name>Orckestra.Analyzers.Common</Name>
+      <Name>Code.Analyzers.Common</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

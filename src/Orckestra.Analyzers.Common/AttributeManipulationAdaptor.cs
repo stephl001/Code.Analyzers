@@ -2,7 +2,7 @@
 using Microsoft.CodeAnalysis.CSharp.Syntax;
 using System.Diagnostics;
 
-namespace Orckestra.Analyzers.Common
+namespace Code.Analyzers.Common
 {
     internal class AttributeManipulationAdaptor
     {

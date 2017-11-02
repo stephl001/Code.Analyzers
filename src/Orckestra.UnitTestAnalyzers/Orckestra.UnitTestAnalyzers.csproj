@@ -127,9 +127,9 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Orckestra.Analyzers.Common\Orckestra.Analyzers.Common.csproj">
+    <ProjectReference Include="..\Orckestra.Analyzers.Common\Code.Analyzers.Common.csproj">
       <Project>{a1bef2fa-5c92-46e2-8133-9bc43ade15ec}</Project>
-      <Name>Orckestra.Analyzers.Common</Name>
+      <Name>Code.Analyzers.Common</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

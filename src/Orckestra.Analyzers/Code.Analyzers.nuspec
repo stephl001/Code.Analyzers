@@ -1,14 +1,14 @@
 ﻿<?xml version="1.0"?>
 <package xmlns="http://schemas.microsoft.com/packaging/2011/08/nuspec.xsd">
   <metadata>
-    <id>Orckestra.Analyzers</id>
+    <id>Code.Analyzers</id>
     <version>0.0.0</version>
-    <title>Orckestra.Analyzers</title>
-    <authors>Orckestra</authors>
+    <title>Code.Analyzers</title>
+    <authors>Stephane Larocque</authors>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
-    <description>This package contains Roslyn code analyzers that should be used by all production code of Orckestra Commerce Cloud. These analyzers validates code against our coding standard. See also Orckestra.UnitTestAnalyzers for analyzers specific for unit tests projects.</description>
-    <copyright>Copyright 2016</copyright>
-    <tags>Orckestra.Analyzers, analyzers</tags>
+    <description>This package contains Roslyn code analyzers that should be used by all production code.</description>
+    <copyright>Copyright 2017</copyright>
+    <tags>Code.Analyzers, analyzers</tags>
     <frameworkAssemblies>
       <frameworkAssembly assemblyName="System" targetFramework="" />
     </frameworkAssemblies>

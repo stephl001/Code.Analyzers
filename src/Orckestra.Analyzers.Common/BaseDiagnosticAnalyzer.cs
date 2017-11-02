@@ -5,9 +5,9 @@ using System.Collections.Generic;
 using System.Linq;
 using Microsoft.CodeAnalysis.CSharp.Syntax;
 using System;
-using Orckestra.Analyzers.Common.Extensions;
+using Code.Analyzers.Common.Extensions;
 
-namespace Orckestra.Analyzers.Common
+namespace Code.Analyzers.Common
 {
     public abstract class BaseDiagnosticAnalyzer : DiagnosticAnalyzer
     {

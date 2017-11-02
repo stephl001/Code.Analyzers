@@ -4,14 +4,14 @@ using Microsoft.CodeAnalysis;
 using Microsoft.CodeAnalysis.CodeFixes;
 using Microsoft.CodeAnalysis.CSharp;
 using Microsoft.CodeAnalysis.CSharp.Syntax;
-using Orckestra.Analyzers.Common;
+using Code.Analyzers.Common;
 using System.Linq;
 using System.Text.RegularExpressions;
 using System.Collections.Generic;
 using System;
-using Orckestra.Analyzers.Common.Extensions;
+using Code.Analyzers.Common.Extensions;
 
-namespace Orckestra.Analyzers.General
+namespace Code.Analyzers.General
 {
     public partial class GeneralSyntaxAnalyzerCodeFixProvider : BaseCodeFixProvider
     {

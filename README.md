@@ -1,4 +1,4 @@
-# Orckestra Analysers
+# Code Analysers
 ## Definition
 This solution contains the various analysers that are being used to validate coding and API conventions at compile time using the Roslyn compiler.
 ## Analysers
@@ -32,7 +32,7 @@ where you put your unit tests (3). I will now walk you through the creation of a
 ![Analyzer Project Structure](img/analyzer-project-structure.png)
 
 ### 1 - Creation Of a Rule
-The first step when creating an analyzer is to create a rule that will define what you are trying to detect and notify. So, in the _Orckestra.Analyzers_ project, under the
+The first step when creating an analyzer is to create a rule that will define what you are trying to detect and notify. So, in the _Code.Analyzers_ project, under the
 Rules folder, open the rules.xml document. You can see that the root element is _rules_ and that it contains _rule-set_ elements. These elements
 are containers for rules targetting the same syntax issues. Under the _rule-set_ element, you will find one or more _rule_ elements. 
 
@@ -55,7 +55,7 @@ it only contains static declarations filled with the data found in the Rules.xml
 
 Now, the fun part. Once the boilerplate code has been generated, you will have to create one or two partial classes for your diagnostic.
 The first one will hold the code that will raise the diagnostic and the second will contain code that can provide a code fix for the previously
-detected diagnostic. In the project Orckestra.Analyzers, under the folder that has the same name as the rule-set element containing your new rule,
+detected diagnostic. In the project Code.Analyzers, under the folder that has the same name as the rule-set element containing your new rule,
 make sure the counterpart classes are present. Otherwise, create them and make sure yo respect the namespaces for the partial classes.
 
 In the partial class for your diagnostic detection, there is only one important method: public override void Initialize(AnalysisContext context). This is where you
@@ -88,5 +88,4 @@ when you build this project, follow these steps:
     path to point to your local NuGet feed folder.
 	
 ## Authors
-* [Stephane Larocque](mailto:stephane.larocque@orckestra.com)
-* [Maxime Beaudry](mailto:maxime.beaudry@orckestra.com)
+* [Stephane Larocque](mailto:stephl001@gmail.com)

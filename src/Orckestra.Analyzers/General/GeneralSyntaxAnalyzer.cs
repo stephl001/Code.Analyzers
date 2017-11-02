@@ -6,9 +6,9 @@ using Microsoft.CodeAnalysis.CSharp.Syntax;
 using System.Collections.Generic;
 using System.Text.RegularExpressions;
 using System;
-using Orckestra.Analyzers.Common.Extensions;
+using Code.Analyzers.Common.Extensions;
 
-namespace Orckestra.Analyzers.General
+namespace Code.Analyzers.General
 {
     public partial class GeneralSyntaxAnalyzer
     {

@@ -1,6 +1,6 @@
 ﻿using System.Threading.Tasks;
 
-namespace Orckestra.Analyzers.Tests.Sources
+namespace Code.Analyzers.Tests.Sources
 {
     public class ConfigureAwaitTest
     {

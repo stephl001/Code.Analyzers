@@ -5,7 +5,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 
-namespace Orckestra.Analyzers.Common.Extensions
+namespace Code.Analyzers.Common.Extensions
 {
     public static class SyntaxNodeExtensions
     {

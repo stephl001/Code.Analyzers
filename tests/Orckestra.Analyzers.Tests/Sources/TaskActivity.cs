@@ -2,7 +2,7 @@
 using System.Activities;
 using System.Collections.Generic;
 
-namespace Orckestra.Overture.DurableTask
+namespace Code.Overture.DurableTask
 {
     /// <summary>
     /// Abstract class to be used as base class for custom activities.

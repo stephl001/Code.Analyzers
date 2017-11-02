@@ -2,7 +2,7 @@
 using Microsoft.CodeAnalysis.Diagnostics;
 using System.Linq;
 
-namespace Orckestra.Analyzers.WorkflowFoundation
+namespace Code.Analyzers.WorkflowFoundation
 {
     public partial class WorkflowFoundationSyntaxAnalyzer
     {

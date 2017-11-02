@@ -1,10 +1,10 @@
 ﻿using Analyzers.Tests.Common;
 using Analyzers.Tests.Common.Helpers;
-using Orckestra.Analyzers.General;
+using Code.Analyzers.General;
 using System.Reflection;
 using Xunit;
 
-namespace Orckestra.Analyzers.Tests
+namespace Code.Analyzers.Tests
 {
     public class ExceptionTests : AnalyzerNoCodeFixTestBase<GeneralSyntaxAnalyzer>
     {

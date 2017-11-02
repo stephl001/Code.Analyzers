@@ -4,11 +4,11 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following 
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("Orckestra.RequestAnalyzers")]
-[assembly: AssemblyDescription("Roslyn code Analyzers for Orckestra Request classes.")]
+[assembly: AssemblyTitle("Code.RequestAnalyzers")]
+[assembly: AssemblyDescription("Roslyn code Analyzers for Code Request classes.")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("Orckestra.RequestAnalyzers")]
+[assembly: AssemblyProduct("Code.RequestAnalyzers")]
 [assembly: AssemblyCopyright("Copyright ©  2016")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]

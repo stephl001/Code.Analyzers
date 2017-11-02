@@ -1,11 +1,11 @@
 ﻿using System.Collections.Immutable;
 using Microsoft.CodeAnalysis;
 using Microsoft.CodeAnalysis.Diagnostics;
-using Orckestra.Analyzers.Common;
+using Code.Analyzers.Common;
 using Microsoft.CodeAnalysis.CodeFixes;
 using System.Composition;
 
-namespace Orckestra.Analyzers.General
+namespace Code.Analyzers.General
 {
 	[DiagnosticAnalyzer(LanguageNames.CSharp)]
 	public partial class GeneralSyntaxAnalyzer : BaseDiagnosticAnalyzer
@@ -49,7 +49,7 @@ namespace Orckestra.Analyzers.General
 		}
 	}
 	}
-namespace Orckestra.Analyzers.WorkflowFoundation
+namespace Code.Analyzers.WorkflowFoundation
 {
 	[DiagnosticAnalyzer(LanguageNames.CSharp)]
 	public partial class WorkflowFoundationSyntaxAnalyzer : BaseDiagnosticAnalyzer

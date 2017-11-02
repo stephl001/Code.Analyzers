@@ -10,7 +10,7 @@ using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 
-namespace Orckestra.Analyzers.Test.Common.Helpers
+namespace Code.Analyzers.Test.Common.Helpers
 {
     [ExcludeFromCodeCoverage]
     public static class DiffToolLauncher

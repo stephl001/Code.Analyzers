@@ -153,13 +153,13 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\src\Orckestra.Analyzers.Common\Orckestra.Analyzers.Common.csproj">
+    <ProjectReference Include="..\..\src\Orckestra.Analyzers.Common\Code.Analyzers.Common.csproj">
       <Project>{A1BEF2FA-5C92-46E2-8133-9BC43ADE15EC}</Project>
-      <Name>Orckestra.Analyzers.Common</Name>
+      <Name>Code.Analyzers.Common</Name>
     </ProjectReference>
-    <ProjectReference Include="..\Orckestra.Analyzers.Test.Common\Orckestra.Analyzers.Test.Common.csproj">
+    <ProjectReference Include="..\Orckestra.Analyzers.Test.Common\Code.Analyzers.Test.Common.csproj">
       <Project>{eee1eeef-fe55-46d4-9f82-5d968414246b}</Project>
-      <Name>Orckestra.Analyzers.Test.Common</Name>
+      <Name>Code.Analyzers.Test.Common</Name>
     </ProjectReference>
     <ProjectReference Include="..\..\src\Orckestra.UnitTestAnalyzers\Orckestra.UnitTestAnalyzers.csproj">
       <Project>{A59D9CBE-AC26-433D-9067-4FC0248EE205}</Project>

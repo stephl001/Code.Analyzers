@@ -3,21 +3,15 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.26430.16
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Orckestra.UnitTestAnalyzers", "src\Orckestra.UnitTestAnalyzers\Orckestra.UnitTestAnalyzers.csproj", "{A59D9CBE-AC26-433D-9067-4FC0248EE205}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Orckestra.UnitTestAnalyzers.Tests", "tests\Orckestra.UnitTestAnalyzers.Tests\Orckestra.UnitTestAnalyzers.Tests.csproj", "{A811EC1F-B90A-4BCA-94C7-082E148EBF99}"
-EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "UnitTest Analyzers", "UnitTest Analyzers", "{FD7332F0-D5E1-4007-9BB7-98B699E9A3D9}"
-EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Analyzers", "Analyzers", "{C5085FA1-7109-4753-98CE-42E884627ACD}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Orckestra.Analyzers", "src\Orckestra.Analyzers\Orckestra.Analyzers.csproj", "{390EB886-0CA2-429B-87FB-3590592E5D97}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Code.Analyzers", "src\Orckestra.Analyzers\Code.Analyzers.csproj", "{390EB886-0CA2-429B-87FB-3590592E5D97}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Orckestra.Analyzers.Tests", "tests\Orckestra.Analyzers.Tests\Orckestra.Analyzers.Tests.csproj", "{E3FB53AD-66B0-41D1-B282-F2059F012840}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Code.Analyzers.Tests", "tests\Orckestra.Analyzers.Tests\Code.Analyzers.Tests.csproj", "{E3FB53AD-66B0-41D1-B282-F2059F012840}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Orckestra.Analyzers.Test.Common", "tests\Orckestra.Analyzers.Test.Common\Orckestra.Analyzers.Test.Common.csproj", "{EEE1EEEF-FE55-46D4-9F82-5D968414246B}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Code.Analyzers.Test.Common", "tests\Orckestra.Analyzers.Test.Common\Code.Analyzers.Test.Common.csproj", "{EEE1EEEF-FE55-46D4-9F82-5D968414246B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Orckestra.Analyzers.Common", "src\Orckestra.Analyzers.Common\Orckestra.Analyzers.Common.csproj", "{A1BEF2FA-5C92-46E2-8133-9BC43ADE15EC}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Code.Analyzers.Common", "src\Orckestra.Analyzers.Common\Code.Analyzers.Common.csproj", "{A1BEF2FA-5C92-46E2-8133-9BC43ADE15EC}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{57A3D032-2B4E-4ADE-AD45-6606BEBC6B35}"
 	ProjectSection(SolutionItems) = preProject
@@ -34,18 +28,6 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{A59D9CBE-AC26-433D-9067-4FC0248EE205}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{A59D9CBE-AC26-433D-9067-4FC0248EE205}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{A59D9CBE-AC26-433D-9067-4FC0248EE205}.DebugDiffTool|Any CPU.ActiveCfg = Debug|Any CPU
-		{A59D9CBE-AC26-433D-9067-4FC0248EE205}.DebugDiffTool|Any CPU.Build.0 = Debug|Any CPU
-		{A59D9CBE-AC26-433D-9067-4FC0248EE205}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{A59D9CBE-AC26-433D-9067-4FC0248EE205}.Release|Any CPU.Build.0 = Release|Any CPU
-		{A811EC1F-B90A-4BCA-94C7-082E148EBF99}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{A811EC1F-B90A-4BCA-94C7-082E148EBF99}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{A811EC1F-B90A-4BCA-94C7-082E148EBF99}.DebugDiffTool|Any CPU.ActiveCfg = Debug|Any CPU
-		{A811EC1F-B90A-4BCA-94C7-082E148EBF99}.DebugDiffTool|Any CPU.Build.0 = Debug|Any CPU
-		{A811EC1F-B90A-4BCA-94C7-082E148EBF99}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{A811EC1F-B90A-4BCA-94C7-082E148EBF99}.Release|Any CPU.Build.0 = Release|Any CPU
 		{390EB886-0CA2-429B-87FB-3590592E5D97}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{390EB886-0CA2-429B-87FB-3590592E5D97}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{390EB886-0CA2-429B-87FB-3590592E5D97}.DebugDiffTool|Any CPU.ActiveCfg = Debug|Any CPU
@@ -75,8 +57,6 @@ Global
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
-		{A59D9CBE-AC26-433D-9067-4FC0248EE205} = {FD7332F0-D5E1-4007-9BB7-98B699E9A3D9}
-		{A811EC1F-B90A-4BCA-94C7-082E148EBF99} = {FD7332F0-D5E1-4007-9BB7-98B699E9A3D9}
 		{390EB886-0CA2-429B-87FB-3590592E5D97} = {C5085FA1-7109-4753-98CE-42E884627ACD}
 		{E3FB53AD-66B0-41D1-B282-F2059F012840} = {C5085FA1-7109-4753-98CE-42E884627ACD}
 	EndGlobalSection

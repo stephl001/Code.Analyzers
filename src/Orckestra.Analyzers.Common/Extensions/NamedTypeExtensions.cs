@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Linq;
 
-namespace Orckestra.Analyzers.Common.Extensions
+namespace Code.Analyzers.Common.Extensions
 {
     public static class NamedTypeExtensions
     {

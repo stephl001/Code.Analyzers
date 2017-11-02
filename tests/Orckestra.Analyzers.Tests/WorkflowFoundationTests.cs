@@ -1,10 +1,10 @@
 ﻿using Analyzers.Tests.Common;
 using Analyzers.Tests.Common.Helpers;
-using Orckestra.Analyzers.WorkflowFoundation;
+using Code.Analyzers.WorkflowFoundation;
 using System.Reflection;
 using Xunit;
 
-namespace Orckestra.Analyzers.Tests
+namespace Code.Analyzers.Tests
 {
     public class WorkflowFoundationTests : AnalyzerNoCodeFixTestBase<WorkflowFoundationSyntaxAnalyzer>
     {

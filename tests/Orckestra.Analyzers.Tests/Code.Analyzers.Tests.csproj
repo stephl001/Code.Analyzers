@@ -1,16 +1,21 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
-  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\..\packages\NuGet\xunit.runner.visualstudio.2.2.0\build\net20\xunit.runner.visualstudio.props" Condition="Exists('..\..\packages\NuGet\xunit.runner.visualstudio.2.2.0\build\net20\xunit.runner.visualstudio.props')" />
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{EEE1EEEF-FE55-46D4-9F82-5D968414246B}</ProjectGuid>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{E3FB53AD-66B0-41D1-B282-F2059F012840}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Orckestra.Analyzers.Test.Common</RootNamespace>
-    <AssemblyName>Orckestra.Analyzers.Test.Common</AssemblyName>
+    <RootNamespace>Orckestra.Analyzers.Tests</RootNamespace>
+    <AssemblyName>Orckestra.Analyzers.Tests</AssemblyName>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -19,7 +24,8 @@
     <OutputPath>bin\Debug\</OutputPath>
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
-    <WarningLevel>3</WarningLevel>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>full</DebugType>
@@ -28,26 +34,19 @@
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
     <DebugSymbols>true</DebugSymbols>
   </PropertyGroup>
-  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'DebugDiffTool|AnyCPU' ">
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug - DiffTool|AnyCPU'">
     <DebugSymbols>true</DebugSymbols>
     <OutputPath>bin\Debug - DiffTool\</OutputPath>
-    <DefineConstants>TRACE;DEBUG;DebugDiffTool</DefineConstants>
-    <WarningLevel>3</WarningLevel>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
     <DebugType>full</DebugType>
     <PlatformTarget>AnyCPU</PlatformTarget>
     <ErrorReport>prompt</ErrorReport>
     <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="INIFileParser, Version=2.4.0.0, Culture=neutral, PublicKeyToken=79af7b307b65cf3c, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\NuGet\ini-parser.2.4.0\lib\net20\INIFileParser.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
-    <Reference Include="Microsoft.VisualStudio.QualityTools.UnitTestFramework">
-      <Private>false</Private>
-    </Reference>
     <Reference Include="Microsoft.CodeAnalysis, Version=1.2.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\..\packages\NuGet\Microsoft.CodeAnalysis.Common.1.2.1\lib\net45\Microsoft.CodeAnalysis.dll</HintPath>
       <Private>True</Private>
@@ -58,6 +57,14 @@
     </Reference>
     <Reference Include="Microsoft.CodeAnalysis.CSharp.Workspaces, Version=1.2.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\..\packages\NuGet\Microsoft.CodeAnalysis.CSharp.Workspaces.1.2.1\lib\net45\Microsoft.CodeAnalysis.CSharp.Workspaces.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.CodeAnalysis.VisualBasic, Version=1.2.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\NuGet\Microsoft.CodeAnalysis.VisualBasic.1.2.1\lib\net45\Microsoft.CodeAnalysis.VisualBasic.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.CodeAnalysis.VisualBasic.Workspaces, Version=1.2.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\NuGet\Microsoft.CodeAnalysis.VisualBasic.Workspaces.1.2.1\lib\net45\Microsoft.CodeAnalysis.VisualBasic.Workspaces.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="Microsoft.CodeAnalysis.Workspaces, Version=1.2.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
@@ -124,61 +131,55 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AnalyzerNoCodeFixTestBase.cs" />
-    <Compile Include="AnalyzerTestBase.cs" />
-    <Compile Include="CodeReference\Address.cs" />
-    <Compile Include="CodeReference\AllowAnonymousTag.cs" />
-    <Compile Include="CodeReference\ApiAttribute.cs" />
-    <Compile Include="CodeReference\ApiType.cs" />
-    <Compile Include="CodeReference\Authorization.cs" />
-    <Compile Include="CodeReference\AuthorizationAttribute.cs" />
-    <Compile Include="CodeReference\CacheableAttribute.cs" />
-    <Compile Include="CodeReference\ClientIntegrationTestBase.cs" />
-    <Compile Include="CodeReference\Command.cs" />
-    <Compile Include="CodeReference\CultureAwaiter.cs" />
-    <Compile Include="CodeReference\CultureAwaiterExtensions.cs" />
-    <Compile Include="CodeReference\CustomProfilesDocumentation.cs" />
-    <Compile Include="CodeReference\DomainRequestAttribute.cs" />
-    <Compile Include="CodeReference\ICommand.cs" />
-    <Compile Include="CodeReference\ICustomerRequest.cs" />
-    <Compile Include="CodeReference\IHandler.cs" />
-    <Compile Include="CodeReference\IHttpResult.cs" />
-    <Compile Include="CodeReference\IReturn.cs" />
-    <Compile Include="CodeReference\IService.cs" />
-    <Compile Include="CodeReference\PreviewAttribute.cs" />
-    <Compile Include="CodeReference\RouteAttribute.cs" />
-    <Compile Include="CodeReference\ScopedRequest.cs" />
-    <Compile Include="CodeReference\ServiceBase.cs" />
-    <Compile Include="CodeReference\SignOutRequest.cs" />
-    <Compile Include="CodeReference\SignInRequest.cs" />
-    <Compile Include="CodeReference\SpecificRoute.cs" />
-    <Compile Include="ExpectedWarningDiagnosticAttribute.cs" />
-    <Compile Include="ExpectedErrorDiagnosticAttribute.cs" />
-    <Compile Include="ExpectedDiagnosticAttribute.cs" />
-    <Compile Include="Helpers\CodeFixVerifier.Helper.cs" />
-    <Compile Include="Helpers\DiagnosticResult.cs" />
-    <Compile Include="Helpers\DiagnosticVerifier.Helper.cs" />
-    <Compile Include="Helpers\DiffToolLauncher.cs" />
-    <Compile Include="Helpers\SourceStream.cs" />
+    <EmbeddedResource Include="Sources\TaskActivity.cs" />
+    <EmbeddedResource Include="Sources\ThreadSleepAsync.cs" />
+    <EmbeddedResource Include="Sources\FixedThreadSleepAsync.cs" />
+    <Compile Include="SingleAwaitTests.cs" />
+    <EmbeddedResource Include="Sources\SingleAsyncExpression.cs" />
+    <EmbeddedResource Include="Sources\FixedSingleAsyncExpression.cs" />
+    <Compile Include="ThreadSleepAsyncTests.cs" />
+    <Compile Include="ExceptionTests.cs" />
+    <EmbeddedResource Include="Sources\ThrowException.cs" />
+    <Compile Include="WorkflowFoundationTests.cs" />
+    <Compile Include="ConfigureawaitTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Verifiers\CodeFixVerifier.cs" />
-    <Compile Include="Verifiers\DiagnosticVerifier.cs" />
+    <EmbeddedResource Include="Sources\FixedConfigureAwaitTest.cs" />
+    <EmbeddedResource Include="Sources\ConfigureAwaitTest.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />
-    <None Include="packages.config" />
+    <None Include="packages.config">
+      <SubType>Designer</SubType>
+    </None>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\src\Orckestra.Analyzers.Common\Orckestra.Analyzers.Common.csproj">
-      <Project>{A1BEF2FA-5C92-46E2-8133-9BC43ADE15EC}</Project>
-      <Name>Orckestra.Analyzers.Common</Name>
+    <ProjectReference Include="..\..\src\Orckestra.Analyzers.Common\Code.Analyzers.Common.csproj">
+      <Project>{a1bef2fa-5c92-46e2-8133-9bc43ade15ec}</Project>
+      <Name>Code.Analyzers.Common</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Orckestra.Analyzers.Test.Common\Code.Analyzers.Test.Common.csproj">
+      <Project>{eee1eeef-fe55-46d4-9f82-5d968414246b}</Project>
+      <Name>Code.Analyzers.Test.Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\src\Orckestra.Analyzers\Code.Analyzers.csproj">
+      <Project>{390EB886-0CA2-429B-87FB-3590592E5D97}</Project>
+      <Name>Code.Analyzers</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{82A7F48D-3B50-4B1E-B82E-3ADA8210C358}" />
   </ItemGroup>
   <ItemGroup>
     <Analyzer Include="..\..\packages\NuGet\Microsoft.CodeAnalysis.Analyzers.1.1.0\analyzers\dotnet\cs\Microsoft.CodeAnalysis.Analyzers.dll" />
     <Analyzer Include="..\..\packages\NuGet\Microsoft.CodeAnalysis.Analyzers.1.1.0\analyzers\dotnet\cs\Microsoft.CodeAnalysis.CSharp.Analyzers.dll" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\..\packages\NuGet\xunit.runner.visualstudio.2.2.0\build\net20\xunit.runner.visualstudio.props')" Text="$([System.String]::Format('$(ErrorText)', '..\..\packages\NuGet\xunit.runner.visualstudio.2.2.0\build\net20\xunit.runner.visualstudio.props'))" />
+  </Target>
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
   <Target Name="BeforeBuild">
